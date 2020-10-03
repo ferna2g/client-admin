@@ -4,10 +4,13 @@ import NuevaCuenta from './components/auth/NuevaCuenta'
 import Proyectos from './components/proyectos/Proyectos'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
+import ProyectoState from './context/proyectos/proyectoState'
+
 function App() {
   //<Route exact path="/nueva-cuenta" component={NuevaCuenta} />
   //<Route exact path="/proyectos" component={Proyectos} />
   return (
+    <ProyectoState>
     <Router>
       <Switch>
           <Route exact path="/" component={Login} />
@@ -15,6 +18,7 @@ function App() {
           <Route exact path="/proyectos" component={Proyectos} />
       </Switch>
     </Router>
+    </ProyectoState>
   );
 }
 
