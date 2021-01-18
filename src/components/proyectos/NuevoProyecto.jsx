@@ -5,12 +5,12 @@ const NuevoProyecto = () => {
 
   //obtener el state del formulario
   const proyectosContext = useContext(proyectoContext)
-  const { formulario, mostrarFormulario } = proyectosContext
+  const { formulario, mostrarFormulario, agregarProyecto } = proyectosContext;
 
   //State para proyecto
   const [ proyecto, guardarProyecto ] = useState({
     nombre:''
-  })
+  });
 
   //extraer nombre del proyecto
   const { nombre } = proyecto
@@ -26,13 +26,27 @@ const NuevoProyecto = () => {
   //Cuando el usuario envia un proyecto
   const onSubmitProyecto = e => {
     e.preventDefault()
+
+    //validar el proyecto
+    if(nombre === '') {
+      return;
+    }
+
+    //agregar al state
+    agregarProyecto(proyecto)
+
+    //reiniciar el form
+    guardarProyecto({
+      nombre: ''
+    })
   }
 
+  //mostrar el formulario
   //otra forma de llamar al formulario con el boton
   const onClickFormulario = () => {
     mostrarFormulario()
   }
-  
+
   return (
     <Fragment>
         <button

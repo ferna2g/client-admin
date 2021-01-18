@@ -1,8 +1,11 @@
 import React, { useReducer } from 'react'
+import uuid from 'uuid/v4';
 
 import proyectoContext from './proyectoContext'
 import proyectoReducer from './proyectoReducer'
-import { FORMULARIO_PROYECTO, OBTENER_PROYECTOS } from '../../types'
+import { FORMULARIO_PROYECTO,
+         OBTENER_PROYECTOS,
+         AGREGAR_PROYECTO } from '../../types'
 
 const ProyectoState = props => {
 
@@ -35,6 +38,17 @@ const ProyectoState = props => {
     })
   }
 
+  //agregar nuevo proyecto
+  const agregarProyecto = proyecto => {
+    proyecto.id = uuid.v4()
+
+    //insertar el proyecto en el state
+    dispatch({
+      type: AGREGAR_PROYECTO,
+      payload: proyecto
+    })
+  }
+
   //nota: state se definen con una sola palabra y en minuscula,
   //las funciones se definen con dos palabras y la segunda en mayuscula
 
@@ -44,7 +58,8 @@ const ProyectoState = props => {
           proyectos: state.proyectos,
           formulario: state.formulario,
           mostrarFormulario,
-          obtenerProyectos
+          obtenerProyectos,
+          agregarProyecto
         }}
     >
         {props.children}
