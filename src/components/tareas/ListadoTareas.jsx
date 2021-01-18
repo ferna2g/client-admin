@@ -13,7 +13,7 @@ const ListadoTareas = () => {
       return <h2>Selecciona un proyecto</h2>
     }
 
-    //array destructuring
+    //array destructuring para extraer el proyecto actual
     const [ proyectoActual ] = proyecto;
 
   const tareasProyecto = [
