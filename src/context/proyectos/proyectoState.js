@@ -7,7 +7,8 @@ import { FORMULARIO_PROYECTO,
          OBTENER_PROYECTOS,
          AGREGAR_PROYECTO,
          VALIDAR_FORMULARIO,
-         PROYECTO_ACTUAL } from '../../types'
+         PROYECTO_ACTUAL,
+         ELIMINAR_PROYECTO } from '../../types'
 
 const ProyectoState = props => {
 
@@ -68,6 +69,14 @@ const ProyectoState = props => {
     })
   }
 
+  //elimina un proyecto
+  const eliminarProyecto = proyectoId => {
+    dispatch({
+      type: ELIMINAR_PROYECTO,
+      payload: proyectoId
+    })
+  }
+
   //nota: state se definen con una sola palabra y en minuscula,
   //las funciones se definen con dos palabras y la segunda en mayuscula
 
@@ -82,7 +91,8 @@ const ProyectoState = props => {
           obtenerProyectos,
           agregarProyecto,
           mostrarError,
-          proyectoActual
+          proyectoActual,
+          eliminarProyecto
         }}
     >
         {props.children}
