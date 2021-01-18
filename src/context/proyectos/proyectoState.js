@@ -5,7 +5,8 @@ import proyectoContext from './proyectoContext'
 import proyectoReducer from './proyectoReducer'
 import { FORMULARIO_PROYECTO,
          OBTENER_PROYECTOS,
-         AGREGAR_PROYECTO } from '../../types'
+         AGREGAR_PROYECTO,
+         VALIDAR_FORMULARIO } from '../../types'
 
 const ProyectoState = props => {
 
@@ -17,7 +18,8 @@ const ProyectoState = props => {
 
   const initialState = {
     proyectos: [],
-    formulario: false
+    formulario: false,
+    errorformulario: false
   }
 
   //Dispatch para ejecutar las acciones
@@ -49,6 +51,13 @@ const ProyectoState = props => {
     })
   }
 
+  //valida el formulario por erroes
+  const mostrarError = () => {
+    dispatch({
+      type: VALIDAR_FORMULARIO
+    })
+  }
+
   //nota: state se definen con una sola palabra y en minuscula,
   //las funciones se definen con dos palabras y la segunda en mayuscula
 
@@ -57,9 +66,11 @@ const ProyectoState = props => {
         value={{
           proyectos: state.proyectos,
           formulario: state.formulario,
+          errorformulario: state.errorformulario,
           mostrarFormulario,
           obtenerProyectos,
-          agregarProyecto
+          agregarProyecto,
+          mostrarError
         }}
     >
         {props.children}
