@@ -45,7 +45,7 @@ const ProyectoState = props => {
 
   //agregar nuevo proyecto
   const agregarProyecto = proyecto => {
-    proyecto.id = uuid.v4()
+    proyecto.id = uuid.v4
 
     //insertar el proyecto en el state
     dispatch({
