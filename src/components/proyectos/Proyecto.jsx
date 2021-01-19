@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import proyectoContext from '../../context/proyectos/proyectoContext';
 import tareaContext from '../../context/tareas/tareaContext';
+
+
 const Proyecto = ({proyecto}) => {
 
   //obtener el state del proyectos
