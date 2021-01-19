@@ -12,6 +12,7 @@ const TareaState = props => {
       { nombre: 'Elegir Pago', estado: false, proyectoId: 3},
       { nombre: 'Elegir Proyecto', estado: true, proyectoId: 2}
     ],
+    tareasproyecto: null
   }
 
   //crear el dispatch y state
@@ -32,6 +33,7 @@ const TareaState = props => {
     <TareaContext.Provider
         value={{
           tareas: state.tareas,
+          tareasproyecto: state.tareasproyecto,
           obtenerTareas
         }}
     >
