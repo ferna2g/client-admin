@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import AlertaContext from '../../context/alertaContext';
 
 const Login = () => {
+
+  //extraer los valores del context
+  const alertaContext = useContext(AlertaContext);
+  const {alerta, mostrarAlerta} = alertaContext
 
   //State para iniciar sesion
   const [ usuario, guardarUsuario ] = useState({
@@ -24,10 +29,26 @@ const Login = () => {
   //Cuando el usuario quiere iniciar sesion
   const onSubmit = e => {
     e.preventDefault();
+
+    //validar que no haya campos vacios
+    if (nombre.trim() === '' ||
+        nombre.trim() === '' ||
+        password.trim() === '' ||
+        confirmar.trim() === '') {
+        mostrarAlerta('Todos los campos son obligatorios', 'alerta-error')
+    }
+
+    // password minimo de 6 caracteres
+
+
+    //los 2 passwords son iguales
+
+
   }
 
   return(
     <div className="form-usuario">
+        { alerta ? (<div className={`alerta ${alerta.categoria}`}> {alerta.msg} </div>) : null}
         <div className="contenedor-form sombra-dark">
             <h1>Crear Cuenta</h1>
 
