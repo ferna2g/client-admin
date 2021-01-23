@@ -12,6 +12,7 @@ import AuthState from './context/autenticacion/authState'
 function App() {
   //<Route exact path="/nueva-cuenta" component={NuevaCuenta} />
   //<Route exact path="/proyectos" component={Proyectos} />
+  console.log(process.env.REACT_APP_BACKEND_URL);
   return (
     <ProyectoState>
       <TareaState>
