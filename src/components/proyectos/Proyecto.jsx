@@ -15,7 +15,7 @@ const Proyecto = ({proyecto}) => {
 
   //funcion para agregar el proyecto actual
   const seleccionarProyecto = id => {
-    proyectoActual(id), //fijar un proyecto actual
+    proyectoActual(id) //fijar un proyecto actual
     obtenerTareas(id) //filtrar las tareas cuando se da click
 
   }
