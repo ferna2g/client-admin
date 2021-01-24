@@ -24,6 +24,14 @@ export default (state, action) => {
           mensaje: action.payload
         }
 
+      case LOGIN_ERROR:
+        localStorage.removeItem('token');
+        return {
+          ...state,
+          token: null,
+          mensaje: action.payload
+        }
+
       default:
           return state;
     }

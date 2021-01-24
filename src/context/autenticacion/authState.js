@@ -32,7 +32,10 @@ const AuthState = props => {
       disptach({
         type: REGISTRO_EXITOSO,
         payload: respuesta.data
-      })
+      });
+
+      //obtener el usuario
+      usuarioAutenticado();
     } catch (e) {
       console.log(e.response.data.msg);
 
@@ -44,6 +47,24 @@ const AuthState = props => {
         type: REGISTRO_ERROR,
         payload: alerta
       })
+    }
+  }
+
+  //retorna el usuario autenticado
+  const usuarioAutenticado = async () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      //funcion para enviar el token por header TODO
+    }
+
+    try {
+      const respuesta = await clienteAxios.get('/api/auth');
+      console.log(respuesta);
+    } catch (e) {
+        console.log(e);
+        disptach({
+          type: LOGIN_ERROR
+        })
     }
   }
 
