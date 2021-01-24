@@ -88,7 +88,7 @@ const AuthState = props => {
 
       // obtener el usuario
       usuarioAutenticado()
-      
+
     } catch (error) {
       const alerta = {
         msg: error.response.data.msg,
@@ -110,7 +110,8 @@ const AuthState = props => {
           usuario: state.usuario,
           mensaje: state.mensaje,
           registrarUsuario,
-          iniciarSesion
+          iniciarSesion,
+          usuarioAutenticado
         }}
       >{props.children}
       </AuthContext>
