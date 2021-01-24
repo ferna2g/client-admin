@@ -8,7 +8,8 @@ import { FORMULARIO_PROYECTO,
          AGREGAR_PROYECTO,
          VALIDAR_FORMULARIO,
          PROYECTO_ACTUAL,
-         ELIMINAR_PROYECTO } from '../../types'
+         ELIMINAR_PROYECTO,
+         PROYECTO_ERROR} from '../../types'
 
 import clienteAxios from '../../config/axios';
 
@@ -22,7 +23,8 @@ const ProyectoState = props => {
     proyectos: [],
     formulario: false,
     errorformulario: false,
-    proyecto: null
+    proyecto: null,
+    mensaje: null
   }
 
   //Dispatch para ejecutar las acciones
@@ -45,6 +47,16 @@ const ProyectoState = props => {
           payload: resultado.data.peoyectos
         })
       } catch (e) {
+
+        const alerta = {
+          msg: 'Hubo un error',
+          categoria: 'alerta-error'
+        }
+
+        dispatch({
+          type: PROYECTO_ERROR,
+          categoria: alerta
+        })
         console.log(e);
       }
   }
@@ -61,6 +73,16 @@ const ProyectoState = props => {
         payload: resultado.data
       })
     } catch (e) {
+
+      const alerta = {
+        msg: 'Hubo un error',
+        categoria: 'alerta-error'
+      }
+
+      dispatch({
+        type: PROYECTO_ERROR,
+        categoria: alerta
+      })
       console.log(e);
     }
   }
@@ -90,6 +112,16 @@ const ProyectoState = props => {
         payload: proyectoId
       })
     } catch (e) {
+
+      const alerta = {
+        msg: 'Hubo un error',
+        categoria: 'alerta-error'
+      }
+
+      dispatch({
+        type: PROYECTO_ERROR,
+        categoria: alerta
+      })
       console.log(e);
     }
   }
@@ -104,6 +136,7 @@ const ProyectoState = props => {
           formulario: state.formulario,
           errorformulario: state.errorformulario,
           proyecto: state.proyecto,
+          mensaje: state.mensaje,
           mostrarFormulario,
           obtenerProyectos,
           agregarProyecto,

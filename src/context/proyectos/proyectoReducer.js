@@ -42,6 +42,12 @@ export  default (state, action) => {
         proyecto: null
       }
 
+      case PROYECTO_ERROR:
+        return {
+          ...state,
+          mensaje: action.payload
+        }
+
     default:
       return state
   }
