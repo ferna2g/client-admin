@@ -81,6 +81,14 @@ const AuthState = props => {
       const respuesta = await clienteAxios.post('/api/auth', datos);
       console.log(respuesta);
 
+      disptach({
+        type: LOGIN_EXITOSO,
+        payload: respuesta.data
+      })
+
+      // obtener el usuario
+      usuarioAutenticado()
+      
     } catch (error) {
       const alerta = {
         msg: error.response.data.msg,

@@ -23,6 +23,7 @@ export default (state, action) => {
         usuario: action.payload
       }
 
+      case LOGIN_EXITOSO,
       case REGISTRO_ERROR:
         return {
           ...state,
