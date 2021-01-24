@@ -19,7 +19,8 @@ const AuthState = props => {
     token: localStorage.getItem('token'), //almacenamos el token en localstorage
     autenticado: null,
     usuario: null,
-    mensaje: null
+    mensaje: null,
+    cargando: true
   }
 
   const [state, disptach] = useReducer(AuthReducer, initialState);
