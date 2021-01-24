@@ -1,15 +1,27 @@
-import { MOSTRAR_ALERTA, OCULTAR_ALERTA} from '../../types';
+import {
+        REGISTRO_EXITOSO,
+        REGISTRO_ERROR,
+        OBTENER_USUARIO,
+        LOGIN_EXITOSO,
+        LOGIN_ERROR,
+        CERRAR_SESION
+      } from '../../types';
 
 export default (state, action) => {
     switch(action.type) {
-      case MOSTRAR_ALERTA:
+      case REGISTRO_EXITOSO:
+        localStorage.setItem('token', action.payload.token)
         return {
-          alerta: action.payload
+          ...state,
+          autenticado: true,
+          mensaje: null
         }
 
-      case OCULTAR_ALERTA:
+      case REGISTRO_ERROR:
         return {
-          alerta: null
+          ...state,
+          token: null,
+          mensaje: action.payload
         }
 
       default:
