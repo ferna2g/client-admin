@@ -110,7 +110,7 @@ const AuthState = props => {
     })
   }
 
-    return {
+    return (
       <AuthContext.Provider
         value={{
           token: state.token,
@@ -123,9 +123,8 @@ const AuthState = props => {
           cerrarSesion
         }}
       >{props.children}
-      </AuthContext>
-    }
-
+      </AuthContext.Provider>
+    )
 }
 
 export default AuthState;
