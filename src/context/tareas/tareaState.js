@@ -15,9 +15,6 @@ import clienteAxios from '../../config/axios'
 
 const TareaState = props => {
   const initialState = {
-    tareas: [
-
-    ],
     tareasproyecto: [],
     errortarea: false,
     tareaseleccionada: null
@@ -27,7 +24,6 @@ const TareaState = props => {
   const [state, dispatch] = useReducer(TareaReducer, initialState);
 
   //crear las funciones
-
 
   //obtener las tareas de un proyecto
   const obtenerTareas = async proyecto => {
@@ -82,13 +78,6 @@ const TareaState = props => {
     }
   }
 
-  // cambia el estado de cada tarea
-  const cambiarEstadoTarea = tarea => {
-    dispatch(parseFloat(type: ESTADO_TAREA,
-    payload: tarea
-    ))
-  }
-
   //EDITA O MODIFICA UNA TAREA
   const actualizarTarea = async tarea => {
     console.log(tarea);
@@ -102,8 +91,6 @@ const TareaState = props => {
       })
     } catch (e) {
       console.log(e);
-    } finally {
-
     }
   }
 

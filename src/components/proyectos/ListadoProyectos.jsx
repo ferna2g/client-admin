@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import Proyecto from './Proyecto'
 import proyectoContext from '../../context/proyectos/proyectoContext'
 import AlertaContext from '../../context/alertas/alertaContext';
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 const ListadoProyectos = () => {
 
@@ -26,7 +26,8 @@ const ListadoProyectos = () => {
   }, [mensaje])
 
   //revisar si proyectos tiene contenido
-  if(proyectos.length === 0) return <p>No hay Proyectos, comienza creando uno</p>
+ if(proyectos.length === 0) return <p>No hay Proyectos, comienza creando uno</p>;
+
 
   return (
     <ul className="listado-proyectos">

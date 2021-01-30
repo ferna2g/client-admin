@@ -1,6 +1,4 @@
 import React, { useReducer } from 'react'
-
-
 import proyectoContext from './proyectoContext'
 import proyectoReducer from './proyectoReducer'
 import { FORMULARIO_PROYECTO,
@@ -14,10 +12,6 @@ import { FORMULARIO_PROYECTO,
 import clienteAxios from '../../config/axios';
 
 const ProyectoState = props => {
-
-  const proyectos = [
-
-  ]
 
   const initialState = {
     proyectos: [],
@@ -44,7 +38,7 @@ const ProyectoState = props => {
         console.log(resultado.data);
         dispatch({
           type: OBTENER_PROYECTOS,
-          payload: resultado.data.peoyectos
+          payload: resultado.data.proyectos
         })
       } catch (e) {
 
@@ -120,7 +114,7 @@ const ProyectoState = props => {
 
       dispatch({
         type: PROYECTO_ERROR,
-        categoria: alerta
+        payload: alerta
       })
       console.log(e);
     }

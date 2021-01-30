@@ -4,7 +4,7 @@ import alertaContext from './alertaContext';
 
 import { MOSTRAR_ALERTA, OCULTAR_ALERTA } from '../../types';
 
-const AlertaState = props => {
+const AlertaState = (props) => {
 
   const initialState = {
     alerta: null
@@ -30,16 +30,16 @@ const AlertaState = props => {
     }, 5000)
   }
 
-  return {
+  return (
     <alertaContext.Provider
     value={{
       alerta: state.alerta,
       mostrarAlerta
     }}
     >
-    {{props.children}}
+    {props.children}
     </alertaContext.Provider>
-  }
+  )
 
 }
 

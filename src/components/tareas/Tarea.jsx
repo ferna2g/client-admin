@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import proyectoContext from '../../context/proyectos/proyectoContext'
 import tareaContext from '../../context/tareas/tareaContext';
 
-const Tarea = ({tarea}) => {
+const Tarea = ({ tarea }) => {
 
   //extraer si un proyecto esta activo
   const proyectosContext = useContext(proyectoContext);
@@ -10,12 +10,12 @@ const Tarea = ({tarea}) => {
 
   //obtener la funcion del context de tarea
   const tareasContext = useContext(tareaContext)
-  const { eliminarTarea, obtenerTareas, actualizarTarea, guardarTareaActua } = tareasContext
+  const { eliminarTarea, obtenerTareas, actualizarTarea, guardarTareaActual } = tareasContext
 
   //extraer el proyecto
   const [proyectoActual] = proyecto;
 
-//funcion que se ejecuta cuando el usuario presiona el boton de eleiminar tarea
+//funcion que se ejecuta cuando el usuario presiona el boton de eliminar tarea
   const tareaEliminar = id => {
     eliminarTarea(id, proyectoActual._id)
     obtenerTareas(proyectoActual.id)

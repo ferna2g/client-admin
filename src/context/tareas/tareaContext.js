@@ -1,5 +1,5 @@
-import { createContext }from 'react'
+import { createContext } from 'react'
 
-const tareaContext = createContex();
+const tareaContext = createContext();
 
 export default tareaContext;

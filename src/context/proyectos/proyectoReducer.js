@@ -3,7 +3,8 @@ import { FORMULARIO_PROYECTO,
          AGREGAR_PROYECTO,
          VALIDAR_FORMULARIO,
          PROYECTO_ACTUAL,
-         ELIMINAR_PROYECTO } from '../../types'
+         ELIMINAR_PROYECTO,
+         PROYECTO_ERROR } from '../../types'
 
 export  default (state, action) => {
   switch(action.type) {

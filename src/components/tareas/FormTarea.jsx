@@ -33,9 +33,7 @@ const FormTarea = () => {
   const { nombre } = tarea;
 
   //si no hay proyecto seleccionado
-  if(!proyecto){
-    return null;
-  }
+  if(!proyecto) return null;
 
   //array destructuring para extraer el proyecto actual
   const [ proyectoActual ] = proyecto;
@@ -43,7 +41,7 @@ const FormTarea = () => {
   //leer los valores del formulario
   const handleChange = e => {
     guardarTarea({
-      ..tarea,
+      ...tarea,
       [e.target.name]: e.target.value
     })
   }
@@ -69,8 +67,6 @@ const FormTarea = () => {
       //eliminar tareaseleccionada del state
       limpiarTarea();
     }
-
-
 
     //obtener y filtrar las tareas del proyecto actual
     obtenerTareas(proyectoActual.id);
@@ -101,7 +97,7 @@ const FormTarea = () => {
                 <input
                     type="submit"
                     className="btn btn-primario btn-submit btn-block"
-                    value={tareaseleccionada ? 'Editar Tarea' " 'Agregar Tarea'" }
+                    value={tareaseleccionada ? 'Editar Tarea' : 'Agregar Tarea' }
                     />
             </div>
         </form>

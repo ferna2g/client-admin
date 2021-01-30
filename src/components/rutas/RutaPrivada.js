@@ -18,8 +18,7 @@ const RutaPrivada = ({ component: Component, ...props }) => {
       <Redirect to="/" />
     ) : (
       <Component { ...props } />
-    ) }
-    />
+    ) } />
   )
 }
 
